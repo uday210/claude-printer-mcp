@@ -1,0 +1,57 @@
+{
+  "name": "claude-printer-mcp",
+  "version": "1.0.0",
+  "description": "A simple MCP server for printing files from Claude",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "claude",
+    "mcp",
+    "printer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.18.0",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "cors": "^2.8.5"
+  },
+  "mcp": {
+    "name": "Claude Printer",
+    "version": "1.0.0",
+    "description": "Print files from Claude",
+    "icon": "🖨️",
+    "actions": [
+      {
+        "name": "print_file",
+        "description": "Print a file",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "string",
+              "description": "Content to print"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file to print"
+            }
+          },
+          "required": ["content"]
+        }
+      },
+      {
+        "name": "list_printers",
+        "description": "List available printers",
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    ]
+  }
+}
